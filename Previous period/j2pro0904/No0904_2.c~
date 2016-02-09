@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+
+  char str[255];
+  char* pt = str;
+  
+  gets(str);
+
+  while(*(pt)++ != '\0'){
+    if(*(pt) == ' '){
+      if(*(pt)>= 'a'&& *(pt) <= 'z'){
+	pt++;
+	*(pt) = *(pt) - 'a' + 'A';
+      }
+    }
+  }
+
+  printf("%s\n",str);
+
+  
+  exit(EXIT_SUCCESS);
+
+}

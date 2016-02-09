@@ -1,0 +1,42 @@
+#include <stdio.h>
+#define BACK -1
+
+int main(void)
+{
+  int ori[10];
+  int cp[10];
+  int i;
+  
+  for(i = 0;i < 10;i++){
+    ori[i]=BACK; cp[i]=BACK;
+  }
+
+  back_num(cp);
+}
+
+void back_num(int cp[])
+{
+  int i;int n;
+
+  for(i = 2;i < 100;i++){
+    for(n = i;n < 100;n++){
+      if(n/(i-1) == 0){
+	if(cp[n] == BACK){
+	  cp[n] = n;
+	}else{
+	  cp[n] = BACK;
+	}
+      }
+    }
+
+    for(n = 1;n < 100;n++){
+      if(cp[n] == BACK){
+	printf("* ");
+      }else{
+	printf("%d ",cp[n]);
+      }
+    }
+  }
+}
+
+ 

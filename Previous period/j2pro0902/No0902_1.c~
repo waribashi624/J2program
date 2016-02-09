@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define p 3.14
+
+double calc_circle(double radius);
+
+int main(void)
+{
+
+  double radius;
+  double ans;
+
+  printf("radius:");
+  
+  scanf("%lf",&radius);
+
+  ans = calc_circle(radius);
+
+  printf("Area = %lf",radius);
+
+  exit(EXIT_SUCCESS);
+  
+}
+
+double calc_circle(double radius)
+{
+
+  double ans;
+
+  ans = radius * radius * p;
+
+  return ans;
+
+}
+
+  

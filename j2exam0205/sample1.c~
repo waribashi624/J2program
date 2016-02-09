@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 1000
+#define NUM 500
+
+void init(int array[]);
+void dispTop10(int array[]);
+
+void init(int array[])
+{
+  int i;
+  
+  for (i=0; i<NUM; i++) {
+    array[i] = rand()%MAX;
+  }
+}
+
+void dispTop10(int array[])
+{
+  int i;
+  
+  for (i=0; i<10; i++) {
+    printf("%d\n", array[i]);
+  }
+}
+
+int main(void)
+{
+  int array[NUM];
+
+  srand(205);// 解答結果を確認ため，乱数の種は変更してはいけない
+
+  init(array);
+  dispTop10(array);
+
+  return 0;
+}

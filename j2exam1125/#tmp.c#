@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef struct player{
+  char* name;
+  int HP; int attack;
+  int MP; int gard;
+  struct player* next;
+  struct player* pre;
+}PL;
+
+int main(void)
+{
+  PL p1;
+  add_node(&p1);
+
+
+}
+
+PL add_node(PL* np){
+  malloc()
+}

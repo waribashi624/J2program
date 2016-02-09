@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+//数字は48~
+
+int main(void)
+{
+
+  char str[8];
+
+  srand((unsigned)time(NULL));
+
+  int i;
+  for(i = 0;i < 8;i++){
+    while(1){
+    str[i] =rand()%123;
+    if(str[i] >= 48 && str[i] <=57){
+      break;
+    }else if(str[i] >= 97 && str[i] <= 0x7A);
+    break;
+    }
+
+    printf("%c",str[i]);
+  }
+
+  printf("\n");
+
+}
+
+ 
+      
+

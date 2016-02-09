@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+
+  char tmp[5];
+
+  scanf("%s",&tmp);
+
+  printf("chk1\n");
+
+  fflush(stdin);
+  
+  printf("chk2\n");
+
+  fgets(tmp,4,stdin);
+
+  printf("chk3\n");
+
+  return 0;
+}

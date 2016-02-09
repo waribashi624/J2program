@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define string "dragon and dragon and dragon."
+#define target "dragon"
+
+int main(void)
+{
+  
+  char str[] = string;
+  char* pt_str = str;
+  char tar[] = target;
+  char* pt_tar = tar;
+  char* pt_pt_tar = pt_tar;
+  int i;
+  int t;
+  int temp = 0; 
+  int count = 0;
+
+  i = sizeof(str);
+  t = sizeof(tar);
+
+  while(pt_str < pt_str+i){
+    while(pt_tar == pt_tar+t){
+
+      if(*pt_str != *pt_tar){
+	tar++;str++;continue;
+      }
+      count++;
+      pt_tar = pt_pt_tar;
+      str++;
+    }
+  }
+
+  exit(EXIT_SUCCESS);
+
+}
+
+  

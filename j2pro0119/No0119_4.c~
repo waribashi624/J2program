@@ -1,0 +1,17 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+
+
+int main(void){
+
+}
+
+void swap(char *a,char *b)
+{
+  char *tmp = a;
+  a = b;
+  b = tmp;
+}
+

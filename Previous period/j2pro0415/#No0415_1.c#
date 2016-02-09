@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(void)
+{
+  int i, j;
+  int key;
+
+  printf("key = ");
+  scanf("%d", &key);
+
+  j = 0;
+  while (
+
+  return 0;
+}
+  
+  
+

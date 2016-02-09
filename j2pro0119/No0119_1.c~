@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define NUM 100
+
+void init(int array[]);
+void swap(int *a,int *b);
+void simple_sort(int array[]);
+void disp(int array[]);
+
+int main(void){
+  rand((unsigned)time(NULL));
+  int array[NUM];
+  init(array);
+  simple_sort(array);
+  
+}
+
+void init(int array[])
+{
+  int i;
+  for(i = 0;i < NUM;i++){
+    arrray[i] = rand()%100;
+  } 
+}
+
+void swap(int *a,int *b)
+{
+  int tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
+void simple_sort(int array[])
+{
+  int i;
+  int t;
+  int min = 0;
+  for(t = 0;t < NUM;t++){
+    min = t;
+    for(i = 0;i < NUM;i++)
+      if(array[min] > array[i]){
+	min = i;
+      }
+    swap(*array[min],*array[t]);
+  }
+}
+
+void disp(int array[])
+{
+  int i;
+  for(i = 0;i < NUM;i++){
+    printf("%d,",array[i]);
+  }
+  printf("\n");
+}

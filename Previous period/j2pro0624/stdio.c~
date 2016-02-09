@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+
+  int a;
+  FILE *fp;
+  char sentence[255];
+
+  if((fp = fopen("sample.txt","w+")) == NULL){
+      printf("FILE is not found.Creat new FILE.\n");
+  }else{
+    printf("FILE found.Oparete this FILE.\n");
+  }
+
+    fclose(fp);
+    return 0;
+}
+
+    

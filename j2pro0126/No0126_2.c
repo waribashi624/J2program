@@ -1,0 +1,170 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+#include "bp.h"
+
+#define PLAYER 10
+#define NAME 8+1
+
+
+enum TYPE{NO=1,NAM,HP,MP,AT,DEF,SP,IN};
+
+typedef struct parameter {
+  int no;
+  char name[NAME];
+  int hp;
+  int mp;
+  double attack;
+  double defence;
+  double sp,in;
+}PL;
+
+void initialize(PL player[]);
+void disp_array(PL player[]);
+void sort(PL player[]);
+void swap(PL* pl1,PL* pl2);
+bool comp(int type,PL *pl,int i,int max);
+
+
+int main(void)
+{
+
+  PL player[PLAYER];
+
+  
+
+  srand(1);
+
+  initialize(player);
+
+  disp_array(player);
+
+  sort(player);
+  
+  disp_array(player);
+
+  return 0;
+}
+
+void initialize(PL player[])
+{
+  int i, j;
+
+  for (i=0; i<PLAYER; i++) {
+    player[i].no = i;
+    for (j=0; j<NAME-1; j++) { 
+      player[i].name[j] = 'a'+rand()%26;
+    }
+    player[i].name[j] = '\0';
+    player[i].hp = rand()%100;
+    player[i].mp = rand()%100;
+    player[i].attack = (double)rand()/RAND_MAX;
+    player[i].defence = (double)rand()/RAND_MAX;
+    player[i].sp = (double)rand()/RAND_MAX;
+    player[i].in = (double)rand()/RAND_MAX;
+  }
+
+}
+
+void disp_array(PL player[])
+{
+  int i;
+
+  printf(" No  Name     HP MP AT   DE   SP   IN\n");
+  for (i=0; i<PLAYER; i++) {
+    printf("[%2d] ", player[i].no+1);
+    printf("%s", player[i].name);
+    printf(" ");
+    printf("%2d %2d %.2f %.2f %.2f %.2f\n", 
+	   player[i].hp, player[i].mp, player[i].attack, player[i].defence,player[i].sp,player[i].in);
+  }
+
+}
+
+void sort(PL player[])
+{
+
+  int select;
+
+  printf("ソートの種類を次の番号から選択してください．\n 1.NO  2.NAME 3.HP  4.MP\n");
+  printf("5.ATTACK 6.DEFENCE 7.SPE 8.INT\n");
+  scanf("%d",&select);
+
+  int i;
+  int t;
+  int max;
+
+  for(t = 0;t < PLAYER;t++){
+    max = t;
+    for(i = t;i < PLAYER;i++){
+      if(comp(select,player,i,max)){
+	max = i;
+      }
+    }
+    swap(&player[t],&player[max]);
+  }
+}
+
+
+void swap(PL* pl1,PL* pl2)
+{
+  PL temp;
+  temp = *pl1;
+  *pl1 = *pl2;
+  *pl2 = temp;
+}
+
+bool comp(int type,PL pl[],int i,int max)
+{
+  enum TYPE t;
+
+  switch(type){
+  case NO:
+    if(pl[max].no < pl[i].no){
+      return true;
+    }
+    break;
+  case NAM:
+    if(pl[max].name[0] < pl[i].name[0]){
+      return true;
+    }
+    break;
+  case HP:
+    if(pl[max].hp < pl[i].hp){
+      return true;
+    }
+    break;
+  case MP:
+    if(pl[max].mp < pl[i].mp){
+      return true;
+    }
+    break;
+  case AT:
+    if(pl[max].attack < pl[i].attack){
+      return true;
+    }
+    break;
+  case DEF:
+    if(pl[max].defence < pl[i].defence){
+      return true;
+    }
+    break;
+  case SP:
+    if(pl[max].sp < pl[i].sp){
+      return true;
+    }
+    break;
+  case IN:
+    if(pl[max].in < pl[i].in){
+      return true;
+    }
+    break;
+  default:
+    printf("EXIT_FAILUER");
+    exit(1);
+  }
+  return false;
+}
+  
+  

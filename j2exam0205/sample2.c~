@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define NAMESIZE 8+1
+#define NUM_A 5
+#define NUM_B 3
+#define NUM_C 48
+
+struct character {
+  char name[NAMESIZE];
+  int HP;
+  double attack;
+  double defense;
+};
+
+void init_team(struct character team[], int num)
+{
+  int i, j;
+  char vowel[] = {'a', 'i', 'u', 'e' ,'o'}; //母音
+
+  for (i=0; i<num; i++) {
+    for (j=0; j<NAMESIZE-1; j++) {
+      if (j%2==0) { // 子音
+	team[i].name[j] = rand()%26 + 'a';
+      }
+      else { // 母音
+	team[i].name[j] = vowel[rand()%5];
+      }
+    }
+    team[i].name[j] = '\0';
+    team[i].HP = rand()%101;
+    team[i].attack = (double)rand()/RAND_MAX;
+    team[i].defense = (double)rand()/RAND_MAX;
+  }
+}
+
+void disp_team(struct character team[], int num)
+{
+  int i;
+
+  printf("Name      HP   AT     DE   \n");
+  for (i=0; i<num; i++) {
+    printf("%s %3d   %.2f   %.2f\n",
+	   team[i].name, team[i].HP,  team[i].attack, team[i].defense);
+  }
+  printf("\n");
+}
+
+int main(void)
+{
+  struct character teamA[NUM_A];
+  struct character teamB[NUM_B];
+  struct character teamC[NUM_C];
+  
+  srand(93057);	   // 解答結果を確認ため，乱数の種は変更してはいけない
+
+  init_team(teamA, NUM_A);
+  init_team(teamB, NUM_B);
+  init_team(teamC, NUM_C);
+
+  disp_team(teamA, NUM_A);
+  disp_team(teamB, NUM_B);
+  disp_team(teamC, NUM_C);
+
+  return 0;
+}

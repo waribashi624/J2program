@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void)
+{
+
+  char str[255];
+  char *pt = str;
+
+  fgets(255,str);
+  
+  int count = 0;
+  
+
+  while(pt++){
+    if(*pt == ' '){
+      count++;
+	}else if(*pt == '\0'){
+      break;
+    }
+  }
+
+  count++;
+
+  
+  printf("Words = %d\n",count);
+
+  exit(EXIT_SUCCESS);
+
+}

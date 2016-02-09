@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+
+  char str[255] = "Hello,World!";
+
+  char *pt = &str;
+
+  printf("%s"pt);
+  printf("%d"pt);
+  printf("%d"&pt);
+
+  return 0;
+}

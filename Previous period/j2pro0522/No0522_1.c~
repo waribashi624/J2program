@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int math(int class[],int serial[]);
+
+int main(void)
+{
+
+  int num;
+  int money = 3000;
+  char ans;
+
+ re:
+  printf("Your under is %d￥",money);
+  printf("Do you want to buy any lot ?");
+  scanf("%d",num);
+
+  if(num*300 > money){
+    goto re;
+  }
+
+  
+
+  srand((unsigned)time(NULL));
+
+  int class[num];
+  int serial[num];
+  
+  int t;
+  int i;
+  int count = 0;
+  for(i = 0;i < num;i++){
+    class[i] = rand()%10 + 1;
+  }
+
+  for(i = 0;i < num;i++){
+  res:
+    serial[i] = rand()%199999;
+    if(serial[i] < 100000){
+      goto res;
+    }
+
+    for(t = 0;t < num;t++){
+      if(serial[i] == serial[t]){
+	count = count + 1;
+      }
+    }
+
+    if(count > 1){
+      goto res;
+    }
+  }
+
+  money = money + math(class[],serial[]);
+
+  printf("money = %d",money);
+
+  printf("Do you want to exit?(y/n)");
+
+  scanf("%s",&ans);
+
+  
+  
+
+
+	

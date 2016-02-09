@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int ply1;
+  int ply2;
+
+  printf("To player1: Please puts number.\r");
+  scanf("%d",&ply1);
+
+  printf("To player2: Please puts number.\r");
+  scanf("%d",&ply2);
+
+  exit(EXIT_SUCCESS);
+
+}

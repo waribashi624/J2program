@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main(void)
+{
+
+  char st[] = "hentai";
+  char* str = st;
+
+  int i;
+
+  i = sizeof(st);
+  int t;
+
+
+  while(str <= str+i){
+    printf("%c",*str);
+    str++;
+  }
+
+  return 0;
+
+}
+  

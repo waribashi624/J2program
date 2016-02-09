@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define PLAYER 10
+#define NAME 8+1
+
+typedef struct parameter {
+  int no;
+  char name[NAME];
+  int hp;
+  int mp;
+  double attack;
+  double defence;
+}PL;
+
+void initialize(PL player[]);
+void disp_array(PL player[]);
+void search_player(PL player[]);
+
+int main(void)
+{
+  PL player[PLAYER];
+
+  srand(1);
+
+  initialize(player);
+
+  disp_array(player);
+
+  search_player(player);
+
+  return 0;
+}
+
+void initialize(PL player[])
+{
+  int i, j;
+
+  for (i=0; i<PLAYER; i++) {
+    player[i].no = i;
+    for (j=0; j<NAME-1; j++) { 
+      player[i].name[j] = 'a'+rand()%26;
+    }
+    player[i].name[j] = '\0';
+    player[i].hp = rand()%100;
+    player[i].mp = rand()%100;
+    player[i].attack = (double)rand()/RAND_MAX;
+    player[i].defence = (double)rand()/RAND_MAX;
+  }
+
+}
+
+void disp_array(PL player[])
+{
+  int i;
+
+  printf(" No  Name     HP MP AT   DE \n");
+  for (i=0; i<PLAYER; i++) {
+    printf("[%2d] ", player[i].no+1);
+    printf("%s", player[i].name);
+    printf(" ");
+    printf("%2d %2d %.2f %.2f\n", 
+	   player[i].hp, player[i].mp, player[i].attack, player[i].defence);
+  }
+
+}
+
+void search_player(PL player[])
+{
+  int i;
+  int index = 0;
+  
+  for(i = 0;i < PLAYER;i++){
+    if(player[i].attack > player[index].attack){
+      index = i;
+    }
+  }
+
+  printf(" No  Name     HP MP AT   DE \n");
+
+  printf("[%2d] ", player[index].no+1);
+  printf("%s", player[index].name);
+  printf(" ");
+  printf("%2d %2d %.2f %.2f\n", 
+	 player[index].hp, player[index].mp, player[index].attack, player[index].defence);
+
+}
+

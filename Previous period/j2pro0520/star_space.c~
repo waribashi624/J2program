@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void star_space(int num)
+{
+
+  int i;
+  int j;
+
+  for(i = num;i != 0;i--){
+    for(j = num;j != 0;j--){
+      printf(" ");
+    }
+    printf("*\n");
+  }
+
+}
+    

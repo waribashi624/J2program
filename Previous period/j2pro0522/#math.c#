@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int math(int class[],int serial[],int num)
+{
+
+  int i;
+  for(i = 0;i < num;i++){
+    

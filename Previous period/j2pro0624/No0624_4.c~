@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+
+  int check;
+  FILE *fp;
+
+  char string[8];
+  char str[8];
+
+   int i;
+  for(i = 0;i < 8;i++){
+    while(1){
+    str[i] =rand()%123;
+    if(str[i] >= 48 && str[i] <=57){
+      break;
+    }else if(str[i] >= 97 && str[i] <= 0x7A){
+    break;
+    }else if(str[i] >= 65 && str[i] <= 90){
+      break;
+    }
+    }
+
+  }
+
+  if((fp = fopen("pass.txt","w+")) == NULL){
+    printf("FILE not found.Create new FILE.\n");
+  }else{
+    printf("FILE found.Oparete this FILE.\n");
+  }
+
+  
+  check = fputs(str,fp);
+  if(check == EOF){
+    printf("ERROR\n");
+  }
+  
+
+  while(fgets(string,256,fp) != NULL){
+    printf("%s",string);
+  }
+
+  fclose(fp);
+
+  return 0;
+
+}

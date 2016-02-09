@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+double pound2kg(double m);
+
+void main(void)
+{
+
+  double pound;
+  double kg;
+
+  printf("Please put number.\n");
+  scanf("%lf",&pound);
+
+  kg = pound2kg;
+
+  printf("%fpound = %fkg",pound,kg);
+
+  return 0;
+
+}
+
+dounle pound2kg(double m)
+{
+
+  double kg;
+  kg = m * 0.45359237;
+
+  return kg;
+
+}

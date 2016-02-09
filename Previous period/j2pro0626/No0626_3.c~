@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+
+  char str[6];
+
+  srand((unsigned)time(NULL));
+
+  int chk = 0;
+  int t;
+  int i;
+  for(i = 0;i < 5;i++){
+    str[i] = rand()%26 + 97;
+    for(t = 0;t < 5;t++){
+      if(str[i] == str[t]){
+	chk += 1;
+      }
+    }
+    switch(chk){
+    case 1 : 
+      printf("%d = %c",i,str[i]);
+      break;
+      //default:
+      
+    } 
+      
+  

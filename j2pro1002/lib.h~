@@ -1,0 +1,7 @@
+typedef struct str{
+  char sentence;
+  struct str* pre;
+  struct str* next;
+}Str;
+
+extern char gene[];

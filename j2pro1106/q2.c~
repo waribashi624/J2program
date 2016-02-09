@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define BACK -1
+
+int main(void)
+{
+  int origin[101]; int cp[101];
+
+  for(int i = 1;i < 101;i++){
+    origin[i-1] = BACK;
+    cp[i-1] = BACK;
+  }
+  
+  origin[100] = 0;
+  cp[100] = 0;
+  
+  back_num(cp);
+}
+
+
+void back_num(int cp[],int ct)
+{
+  int n = 0;
+  int i = 2;
+  while(*cp){
+    for(n = 0;n < 100;n++){
+      if((n+1)/i == 0){
+	if(cp[n+1]==BACK){
+	  cp[n + 1] = n+1;
+	}else{
+	  cp[n + 1] == BACK;
+	}
+      }
+    }
+    i++;
+  }
+}
+	  

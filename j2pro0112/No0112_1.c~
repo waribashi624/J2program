@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define NUM 15
+
+void set_array(int array[]);
+void disp(int array[]);
+void sort(int array[]);
+void swap(int *a,int *b);
+void exp(int array[]);
+
+int i;
+
+int main(void)
+{
+
+  int array[15];
+  
+  set_array(array[]);
+  disp(array[]);
+
+
+  return 0;
+}
+
+void set_array(int array[])
+{
+
+  srand((unsigned)time(NULL));
+
+  for(i = 0;i < NUM;i++){
+    array[i] = rand()%100;
+  }
+
+}
+
+void disp(int array[])
+{
+  for(int i = 0;i < NUM;i++){
+    printf("%d,",array[i]);
+  }
+  printf("\n");
+}
+
+
+void swap(int *a,int *b)
+{
+  int tmp;
+  tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
+void exp(int array[])
+{
+  int min = array[0];
+  int min_index = 0;
+  int smin;
+
+  for(i = 0;i < NUM;i++){
+    if(min > array[i]){
+      min = array[i];
+      min_index = i;
+    }
+  }
+
+  swap(&array[0],&array[i]);
+
+  smin = array[1];
+
+  for(i = 1;i < NUM;i++){
+    if(smin < array[i]){
+      smin < array[i];
+    }
+  }
+      
+}

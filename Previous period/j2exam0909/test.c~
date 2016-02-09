@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+Player battle();
+
+typedef struct player{
+  char name[255];
+  int HP = 20;
+  int attack = 0;
+  int avoid = 0;
+  int luck = 0;
+  int point = 0;
+}Status;
+
+ Status player;
+ Status* pt;
+
+
+int main(void)
+{
+
+  battle();
+
+}
+
+Status battle()
+{
+  *(pt->HP) -=10;
+
+  return 0;
+}
+  
